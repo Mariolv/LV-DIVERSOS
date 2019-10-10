@@ -1,0 +1,17 @@
+[
+	["PSOE",                                                               "psoe",     "#fc2304", 20],
+	["PP",                                                                 "pp",       "#00a3df", 20],
+	["Ciudadanos",                                                         "cs",       "#eb540f", 20],
+	["Podemos",                                                            "podemos",  "#6a3166", 20],
+	["VOX",                                                                "vox",      "#65a43d", 20],
+	["Esquerra Republicana de Catalunya",                                  "erc",      "#ffbf2f", 20],
+	["Junts per Catalunya",                                                "junts",    "#01408f", 20],
+	["Partido Nacionalista Vasco",                                         "pnv", 	   "#009731", 20],
+	["Bildu",                                                              "bildu",    "#baca32", 20],
+	["Navarra Suma",                                                       "ns", 	   "#FF6666", 20],
+	["Coalición Canaria",                                                  "cc", 	   "#51ace2", 20],
+	["Partido Regionalista de Cantabria",                                  "prc", 	   "#B7BF10", 20],
+	["Más País",                                                           "mp",	   "#01C6A4", 20],
+    ["CUP",                                                                "cup",	   "#ffed00", 20],
+    ["Bloque Nacionalista Galego",                                         "bng",	   "#89b0de", 20]
+]
