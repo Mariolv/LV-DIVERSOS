@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.rawgit.com/duroty/responsive/master/app.embed.js"></script>
+</head>
+<body>
+ <style>
+/* COLORES */
+    .blanco {
+        background-color: #ffffff;
+    }
+    .negro {
+        background-color: #000000;
+        color:#ffffff;
+    }
+    .gris {
+        background-color: #eeeeee;
+    }
+    .gris-blanco {
+        background-color: #f8f8f8;
+    }
+    .azul {
+        background-color: #7ed5ff;
+    }
+    .verde {
+        background-color: #b3dad5;
+    }
+    .salmon {
+        background-color: #ff9797;
+    }
+    .naranja {
+        background-color: #ffb25f;
+    }
+    .agua-jabon {
+        background-color: #68b4ef;
+    }
+    .gel {
+        background-color: #66cccc;
+    }
+/* NEGRITA */
+     .negrita {
+         font-weight: 700;
+     }
+/* SOMBRA BLANCA */
+     .sombra-blanca {
+         text-shadow: 2px 2px 0px #ffffff;
+     }
+/* BOTÓN, FILETE DE FOTO Y SEPARADORES DE pasoS */
+    .boton{
+        background-color: #eeeeee;
+        border-radius: 25px;
+        color:#000000!important;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 5px 15px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .boton:hover{
+        background-color: #999999;
+        color:#ffffff!important;
+    }
+    .filete{
+        border: solid 2px #cccccc;
+    }
+     .separador-lateral {
+        border-right: dotted 1px #999999;
+     }
+     .separador-inferior{
+        border-bottom: 0;
+     }
+/*SCROLL SUAVE NATIVO CSS */
+html {
+	scroll-behavior: smooth;
+}
+/* ELEMENTOS */
+    .contenedor-pasos {
+        color: #000000;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        margin:0;
+        overflow: hidden;
+        padding:0;
+        text-align: center;
+        vertical-align: top;
+    }
+    .cabecera-pasos, .pie-pasos {
+        margin: 0 0 20px 0;
+        padding:15px 10px;
+    }
+    .contenedor-pasos ul, li, h1, h2 {
+        margin:0;
+        padding:0;
+    }
+    .contenedor-pasos ul{
+        list-style: none;
+    }
+    .cabecera-pasos .titulo {
+        display: block;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 30px;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+    }
+    .cabecera-pasos .subtitulo {
+        display: block;
+        font-size: 20px;
+        line-height: 22px;
+        margin: 5px 0 0 0;
+        padding: 0;
+        text-transform: uppercase;
+    }
+    .cabecera-pasos .menu {
+        display: none;
+        /*display: block;*/
+        margin:8px 0 0 0;
+    }
+    .cabecera-pasos .item-menu {
+        border-right: solid 1px #cccccc;
+        display: inline-block;
+        font-size: 16px;
+        line-height: 20px;
+        margin: 5px 0;
+        padding: 0 10px;
+    }
+    .cabecera-pasos .item-menu:last-child {
+        border-right: none;
+    }
+    .cabecera-pasos .item-menu a {
+        color:#999999;
+        text-decoration: none;
+    }
+    .cabecera-pasos .item-menu a:hover{
+        color:#000000;
+    }
+    .cabecera-pasos .anchor-menu {
+        height:0;
+        width:0;
+        margin:0;
+        padding:0;
+    }
+    .cuerpo-pasos .categoria {
+        display: block;
+        /*display:none;*/
+        margin: 0 0 25px 0;
+        padding: 10px 15px;
+        text-align: left;
+    }
+    .cuerpo-pasos .categoria:first-child {
+        margin-top: 20px;
+    }
+    .cuerpo-pasos .titulo-categoria {
+        color:#ffffff;
+        display: inline-block;
+        font-size: 20px;
+        line-height: 22px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+    }
+    .cuerpo-pasos .anchor-volver {
+        color:#ffffff;
+        /*color:#cccccc;*/
+        /*display:none;*/
+        display: inline-block;
+        float: right;
+        margin: 0;
+        padding:0;
+        text-decoration: none;
+    }
+    /*.cuerpo-pasos .anchor-volver:hover{
+        color:#ffffff;*/
+    }
+    .cuerpo-pasos .anchor-categoria {
+        height:0;
+        width:0;
+        margin:0;
+        padding:0;
+    }
+    .flecha {
+        border: solid #999999;
+        border-width: 0 1.5px 1.5px 0;
+        display: none;
+        /*display: inline-block;*/
+        float: right;
+        margin: 8px 0 0 8px;
+        padding: 5px;
+     }
+    .arriba {
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+}
+    .cuerpo-pasos .paso {
+        display: inline-block;
+        margin: 0 0 30px 0;
+        overflow: hidden;
+        padding: 0 10px;    
+        text-align: center;
+        vertical-align: top;
+        width:42%;
+    }
+    .paso .imagen-paso {
+        border-radius:100px;
+        display: inline-block;
+        float: inherit;
+        margin: 0 0 18px 0;
+        overflow: hidden;
+        padding: 0;
+        width: 150px;
+    }     
+    .paso .textos-paso {
+        margin: 0;
+        overflow: hidden;
+        padding: 0;
+    }
+    .textos-paso .nombre {
+        display: block;
+        font-size: 22px;
+        font-weight: 700;
+        line-height: 24px;
+        margin: 0 0 6px 0;
+        /*text-transform: uppercase;*/
+        text-shadow: 2px 2px 0px #ffffff;
+    }
+    .textos-paso .texto {
+        display: block;
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0 0 8px 0;
+        text-shadow: 2px 2px 0px #ffffff;
+    }
+    .textos-paso .enlace {
+        color:#999999;
+        display: none;
+        /*display: inline-block;*/
+        margin: 2px 0 18px 0;
+        text-decoration: none;
+    }
+    .textos-paso .enlace:hover{
+        color:#000000;
+    }
+    .pie-pasos .logo-vanguardia {
+        display: inline-block;
+        margin:0 6px 0 0;       
+     }
+    .pie-pasos .fuente {
+        display: inline-block;
+        font-size: 13px;
+        line-height: 15px;
+        margin:0;
+        padding:0;
+        vertical-align: text-top;
+    }
+/* MEDIA QUERIES */
+@media screen and (max-width: 540px){
+    .cuerpo-pasos .paso {
+        display: block;
+        margin: 0 0 18px 0;
+        overflow: hidden;
+        padding: 0;    
+        text-align: left;
+        vertical-align: top;
+        width: 100%;
+    }
+     .separador-lateral{
+        border-right: 0;
+     }
+     .separador-inferior{
+        border-bottom: dotted 1px #cccccc;
+     }
+    .paso .imagen-paso {
+        border-radius:100px;
+        display: inline-block;
+        float: left;
+        margin: 0 15px 18px 10px;
+        overflow: hidden;
+        padding: 0;
+        width: 110px;
+    }
+    .textos-paso .nombre {
+        margin: 8px 0 6px 0;
+    }
+    .textos-paso .texto {
+        margin: 0 10px 8px 0;
+    }
+}
+@media screen and (max-width: 425px){
+    .cuerpo-pasos .anchor-volver {
+        display: none;
+    }
+    .flecha {
+        border: solid #999999;
+        border-width: 0 2px 2px 0;
+        display: none;
+        float: right;
+        margin: 8px 0 0 8px;
+        padding: 5px;
+     }
+    /*.cuerpo-pasos .paso:nth-child(odd) {
+        padding: 0 0 5px 0;   
+    }
+    .cuerpo-pasos .paso:nth-child(even) {
+        padding: 0 0 3px 0;   
+    }*/
+    .textos-paso .nombre {
+        font-size: 20px;
+        line-height: 22px;
+        margin: 8px 0;
+    }
+    .textos-paso .texto {
+        font-size: 16px;
+        line-height: 20px;
+        margin: 0 0 10px 0;
+    }
+}
+@media screen and (max-width: 375px){
+    .textos-paso .nombre {
+        margin: 0 0 6px 0;
+    }
+    .textos-paso .texto {
+        margin: 0 0 15px 0;
+    }
+}
+@media screen and (max-width: 330px){
+    .cabecera-pasos .item-menu {
+        border-right: none;
+        border-bottom: solid 1px #cccccc;
+        margin: 0 10px 5px 10px;
+        padding: 10px 0 15px 0;
+    }
+    .cabecera-pasos .item-menu:last-child {
+        border-bottom: none;
+        margin: 0 10px;
+    }
+    .pie-pasos .fuente {
+        margin:5px 0 0 0;
+    }
+}
+</style>
+<div class="contenedor-pasos">
+    <div class="cabecera-pasos gris">
+        <h1 class="titulo">Cómo lavarse las manos</h1>
+        <span class="subtitulo">Para evitar el contagio del Coronavirus</span>
+        <a class="anchor-menu" id="menu-pasos"></a>
+        <ul class="menu">
+            <li class="item-menu">
+                <a href="#agua-jabon" title="item-menu" alt="item-menu" target="_parent">Con agua y jabón</a>
+            </li>
+            <li class="item-menu">
+                <a href="#gel" title="item-menu" alt="item-menu" target="_parent">Con gel hidroalcohólico</a>
+            </li>
+        </ul>
+    </div>
+    <ul class="cuerpo-pasos gris-blanco">
+        <a class="anchor-categoria" id="agua-jabon"></a>
+        <li class="categoria agua-jabon">
+            <h2 class="titulo-categoria">Con agua y jabón</h2>
+            <a class="anchor-volver" href="#menu-pasos">40-60 segundos</a>
+        </li>
+        <li class="paso separador-inferior separador-lateral">
+            <img class="imagen-paso azul" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/agua-150x150.png" title="Mojarse las manos y aplicar jabón" alt="Mojarse las manos y aplicar jabón"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">1. Mojarse las manos</h2>
+                <span class="texto">Aplicar una cantidad suficiente de jabón</span>
+                <a class="enlace boton" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a>
+            </div>
+        </li>
+        <li class="paso separador-inferior">
+            <img class="imagen-paso azul" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/palmas-150x150.png" title="Frotarse las palmas de las manos" alt="Frotarse las palmas de las manos"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">2. Frotarse las palmas de las manos entre sí</h2>
+                <!--<span class="texto">De las manos, entre sí</span>-->
+                <a class="enlace boton" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a>
+            </div>
+        </li>
+        <li class="paso separador-inferior separador-lateral">
+            <img class="imagen-paso azul" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/dorsos-palmas-150x150.png" title="Frotarse las palmas de las manos contra el dorso de la mano opuesta" alt="Frotarse las palmas de las manos contra el dorso de la mano opuesta"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">3. Frotarse las palmas contra los dorsos</h2>
+                <span class="texto">Palma derecha contra dorso izquierdo y viceversa</span>
+                <a class="enlace boton" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a>
+            </div>
+        </li>
+        <li class="paso separador-inferior">
+            <img class="imagen-paso azul" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/entre-dedos-150x150.png" title="Frotarse de las palmas de las manos entre sí con los dedos entrelazados" alt="Frotarse de las palmas de las manos entre sí con los dedos entrelazados"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">4. Frotarse las palmas de las manos entre sí</h2>
+                <span class="texto">Con los dedos entrelazados</span>
+                <a class="enlace boton" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a>  
+            </div>
+        </li>
+        <li class="paso separador-inferior separador-lateral">
+            <img class="imagen-paso azul" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/dedos-palmas-150x150.png" title="Frotarse el dorso de los dedos" alt="Frotarse el dorso de los dedos"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">5. Frotarse el dorso de los dedos de una mano</h2>
+                <span class="texto">Con la palma de la mano opuesta, agarrándose los dedos</span>
+                <a class="enlace boton" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a> 
+            </div>
+        </li>
+        <li class="paso separador-inferior">
+            <img class="imagen-paso azul" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/pulgares-150x150.png" title="Frotarse los pulgares" alt="Frotarse los pulgares"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">6. Frotarse los pulgares</h2>
+                <span class="texto">Con un movimiento de rotación, rodeándolos con la palma de la mano opuesta</span>
+                <a class="enlace boton" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a>   
+            </div>
+        </li>
+        <li class="paso separador-inferior separador-lateral">
+            <img class="imagen-paso azul" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/puntas-dedos-150x150.png" title="Frotarse las puntas de los dedos" alt="Frotarse las puntas de los dedos"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">7. Frotarse las puntas de los dedos</h2>
+                <span class="texto">Las yemas y las uñas contra la palma de la mano opuesta</span>
+                <a class="enlace boton" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a>
+            </div>
+        </li>
+        <li class="paso separador-inferior">
+            <img class="imagen-paso azul" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/enjuagado-150x150.png" title="Enjuagarse las manos con agua" alt="Enjuagarse las manos con agua"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">8. Enjuagarse las manos</h2>
+                <span class="texto">Con agua abundante</span>
+                <a class="enlace boton" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a>
+            </div>
+        </li>
+        <li class="paso separador-inferior separador-lateral">
+            <img class="imagen-paso azul" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/secado-150x150.png" title="Secarse las manos con una toalla desechable" alt="Secarse las manos  con una toalla desechable"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">9. Secarse las manos</h2>
+                <span class="texto">Con una toalla de un solo uso</span>
+                <a class="enlace boton" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a>
+            </div>
+        </li>
+        <li class="paso">
+            <img class="imagen-paso azul" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/secado-grifo-150x150.png" title="Cerrar el grifo con la toalla" alt="Cerrar el grifo con la toalla"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">10. Cerrar el grifo</h2>
+                <span class="texto">Usando la toalla desechable</span>
+                <a class="enlace boton" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a>
+            </div>
+        </li>
+        <li class="categoria gel">
+            <h2 class="titulo-categoria">Con gel hidroalcohólico</h2>
+            <i class="flecha arriba"></i>
+            <a class="anchor-volver" href="#menu-pasos" target="_parent">20-30 segundos</a>
+        </li>
+        <a class="anchor-categoria" id="gel"></a>
+        <li class="paso separador-inferior separador-lateral">
+            <img class="imagen-paso verde" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/jabon-150x150.png" title="Aplicar gel hidroalcólico en las manos" alt="Aplicar gel hidroalcólico en las mano"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">1. Aplicar el gel hidroalcohólico</h2>
+                <span class="texto">En cantidad suficiente, en las manos</span>
+                <a class="enlace" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a>
+            </div>
+        </li>
+        <li class="paso separador-inferior">
+            <img class="imagen-paso verde" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/frotado-manos-150x150.png" title="Frotarse bien las manos" alt="Frotarse bien las manos"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">2. Frotarse bien las manos</h2>
+                <span class="texto">Todas sus superficies: palmas, dorsos y dedos</span>
+                <a class="enlace boton" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a>
+            </div>
+        </li>  
+        <li class="paso">
+            <img class="imagen-paso verde" src="https://reportajes.lavanguardia.com/stamp/wp-content/uploads/sites/19/2020/03/dejar-secar-150x150-1.png" title="Dejar secar bien las manos" alt="Dejar secar bien las manos"/>
+            <div class="textos-paso">
+                <h2 class="nombre negrita">3. Dejar secar bien las manos</h2>
+                <span class="texto">Antes de volver a tocar cualquier superficie</span>
+                <a class="enlace boton" href="#" title="Ver perfil" alt="Ver perfil" target="_parent">Ver perfil</a>
+            </div>
+        </li>
+        <a class="anchor-categoria" id="3"></a>
+    </ul>
+    <div class="pie-pasos gris">
+        <img class="logo-vanguardia" src="https://lostsightsblog.files.wordpress.com/2019/03/logo-lv-131x20.png" title="La Vanguardia" alt="La Vanguardia" />
+        <span class="fuente">Fuente: <b>Organización Mundial de la Salud.</b></span>
+    </div>
+</div>
+<!-- SCROLL SUAVE JQUERY
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script> -->
+<!-- SCROLL SUAVE CON SMOOTH SCROLL -->
+<script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js">
+</script>
+<script>
+const scroll = new SmoothScroll('a[href*="#"]', {speed:200, speedAsDuration: true});
+</script>
+</body>
